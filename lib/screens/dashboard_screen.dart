@@ -2,12 +2,16 @@ import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import 'package:ski_rental/mock_data/order_mock_data.dart';
 import 'package:ski_rental/models/equipment.dart';
 import 'package:ski_rental/screens/equipment_screen.dart';
 import 'package:ski_rental/themes/app_color.dart';
+import 'package:ski_rental/themes/images_url.dart';
 
+import '../models/order.dart';
 import '../widgets/account_button.dart';
 import '../widgets/menu.dart';
+import '../widgets/orders_list.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -19,13 +23,17 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+  List<Order> orders = [];
+
   @override
   Widget build(BuildContext context) {
+    orders = OrderMockData().mockOrders;
 
     return ScreenUtilInit(
       designSize: const Size(412, 917),
       builder: (context, child) => Scaffold(
         appBar: AppBar(
+          surfaceTintColor: null,
           backgroundColor: AppColor.white,
           foregroundColor: AppColor.primary,
           centerTitle: true,
@@ -36,9 +44,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 onPressed: () => Scaffold.of(context).openDrawer(),
                 icon: Icon(Symbols.menu));
           }),
-          actions: [
-            AccountButton()
-          ],
+          actions: [AccountButton()],
         ),
         drawer: Menu(),
         body: SingleChildScrollView(
@@ -50,7 +56,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 child: Text(
                   "Rent Equipment",
                   style:
-                      TextStyle(fontWeight: FontWeight.w500, fontSize: 20.sp),
+                      TextStyle(fontWeight: FontWeight.w500, fontSize: 18.sp),
                 ),
               ),
               CarouselSlider(
@@ -59,23 +65,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                   items: [
                     // SKi
-                    dashboardCarouselItem('Skis', EquipmentType.ski),
-                    dashboardCarouselItem('Snowboards', EquipmentType.snowboard),
-                    dashboardCarouselItem('Ski Boots', EquipmentType.skiBoots),
-                    dashboardCarouselItem('Snowboard Boots', EquipmentType.snowboardBoots),
-                    dashboardCarouselItem('Helmets', EquipmentType.helmet),
-                    dashboardCarouselItem('Goggles', EquipmentType.goggle),
-                    dashboardCarouselItem('Jackets', EquipmentType.jacket),
-                    dashboardCarouselItem('Pants', EquipmentType.pants),
+                    dashboardCarouselItem('Skis', EquipmentType.ski, ImagesUrl.skiCarouselImage),
+                    dashboardCarouselItem(
+                        'Snowboards', EquipmentType.snowboard, ImagesUrl.snowboardCarouselImage),
+                    dashboardCarouselItem('Ski Boots', EquipmentType.skiBoots, ImagesUrl.skiBootsCarouselImage),
+                    dashboardCarouselItem(
+                        'Snowboard Boots', EquipmentType.snowboardBoots, ImagesUrl.snowboardBootsCarouselImage),
+                    dashboardCarouselItem('Helmets', EquipmentType.helmet, ImagesUrl.helmetCarouselImage),
+                    dashboardCarouselItem('Goggles', EquipmentType.goggle, ImagesUrl.goggleCarouselImage),
+                    dashboardCarouselItem('Jackets', EquipmentType.jacket, ImagesUrl.jacketCarouselImage),
+                    dashboardCarouselItem('Pants', EquipmentType.pants, ImagesUrl.pantsCarouselImage),
                   ]),
               Padding(
                 padding: EdgeInsets.fromLTRB(0, 20.h, 0, 15.h),
                 child: Text(
                   "My Orders",
                   style:
-                  TextStyle(fontWeight: FontWeight.w500, fontSize: 20.sp),
+                      TextStyle(fontWeight: FontWeight.w500, fontSize: 18.sp),
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(15.w, 0, 15.w, 0),
+                child: orders.isEmpty ? Center(child: Text('No Orders Yet'),) : OrdersList(orders: orders),)
             ],
           ),
         ),
@@ -83,32 +94,45 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
-  ClipRRect dashboardCarouselItem(String itemName, EquipmentType type) {
+  ClipRRect dashboardCarouselItem(String itemName, EquipmentType type, String imageUrl) {
     return ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, EquipmentScreen.routeName,
-                          arguments: type);
-                        },
-                        child: Container(
-                          color: AppColor.primary,
-                          constraints: BoxConstraints(
-                              maxHeight: 200.h,
-                              minHeight: 200.h,
-                              maxWidth: 300.w,
-                              minWidth: 300.w),
-                          child: Center(
-                              child: Text(
-                            itemName,
-                            style: TextStyle(
-                                color: AppColor.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 20.sp),
-                          )),
-                        ),
-                      ));
+        borderRadius: BorderRadius.circular(10),
+        child: InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, EquipmentScreen.routeName,
+                arguments: type);
+          },
+          child: Container(
+            decoration: BoxDecoration(boxShadow: [
+              BoxShadow(
+                color: Colors.black.withAlpha(100),
+                spreadRadius: 15,
+                blurRadius: 6,
+              )
+            ]),
+            constraints: BoxConstraints(
+                maxHeight: 200.h,
+                minHeight: 200.h,
+                maxWidth: 300.w,
+                minWidth: 300.w),
+            child: Stack(children: [
+              Image.network(imageUrl,
+              width: 300.w,
+              height: 200.h,
+              fit: BoxFit.cover,),
+              Center(
+                  child: Text(
+                itemName,
+                style: TextStyle(
+                    color: AppColor.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 20.sp,
+                    shadows: [
+                      Shadow(blurRadius: 4, color: Colors.black.withAlpha(200))
+                    ])
+              )),
+            ]),
+          ),
+        ));
   }
 }
-
-

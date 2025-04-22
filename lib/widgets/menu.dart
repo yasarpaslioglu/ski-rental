@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:ski_rental/models/equipment.dart';
+import 'package:ski_rental/screens/cart_screen.dart';
 import 'package:ski_rental/screens/dashboard_screen.dart';
 import 'package:ski_rental/screens/equipment_screen.dart';
+import 'package:ski_rental/screens/my_orders_screen.dart';
 
 import '../themes/app_color.dart';
 
@@ -38,7 +40,7 @@ class _MenuState extends State<Menu> {
                   'Dashboard',
                   style: TextStyle(
                       color: AppColor.white,
-                      fontSize: 20.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.w600),
                 ),
               ),
@@ -59,7 +61,7 @@ class _MenuState extends State<Menu> {
                         'Browse Equipment',
                         style: TextStyle(
                             color: AppColor.white,
-                            fontSize: 20.sp,
+                            fontSize: 17.sp,
                             fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -95,7 +97,7 @@ class _MenuState extends State<Menu> {
                                 'Ski',
                                 style: TextStyle(
                                     color: AppColor.white,
-                                    fontSize: 20.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -117,7 +119,7 @@ class _MenuState extends State<Menu> {
                                 'Snowboard',
                                 style: TextStyle(
                                     color: AppColor.white,
-                                    fontSize: 20.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -139,7 +141,7 @@ class _MenuState extends State<Menu> {
                                 'Ski Boots',
                                 style: TextStyle(
                                     color: AppColor.white,
-                                    fontSize: 20.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -161,7 +163,7 @@ class _MenuState extends State<Menu> {
                                 'Snowboard Boots',
                                 style: TextStyle(
                                     color: AppColor.white,
-                                    fontSize: 20.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -183,7 +185,7 @@ class _MenuState extends State<Menu> {
                                 'Helmet',
                                 style: TextStyle(
                                     color: AppColor.white,
-                                    fontSize: 20.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -205,7 +207,7 @@ class _MenuState extends State<Menu> {
                                 'Goggles',
                                 style: TextStyle(
                                     color: AppColor.white,
-                                    fontSize: 20.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -227,7 +229,7 @@ class _MenuState extends State<Menu> {
                                 'Jacket',
                                 style: TextStyle(
                                     color: AppColor.white,
-                                    fontSize: 20.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -249,7 +251,7 @@ class _MenuState extends State<Menu> {
                                 'Pants',
                                 style: TextStyle(
                                     color: AppColor.white,
-                                    fontSize: 20.sp,
+                                    fontSize: 17.sp,
                                     fontWeight: FontWeight.w600),
                               ),
                             ),
@@ -261,28 +263,32 @@ class _MenuState extends State<Menu> {
                 : Container(),
             // My Orders
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, MyOrdersScreen.routeName);
+              },
               child: Padding(
                 padding: EdgeInsets.fromLTRB(30.w, 7.h, 10.w, 7.h),
                 child: Text(
                   'My Orders',
                   style: TextStyle(
                       color: AppColor.white,
-                      fontSize: 20.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.w600),
                 ),
               ),
             ),
             // Cart
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, CartScreen.routeName);
+              },
               child: Padding(
                 padding: EdgeInsets.fromLTRB(30.w, 7.h, 10.w, 7.h),
                 child: Text(
                   'Cart',
                   style: TextStyle(
                       color: AppColor.white,
-                      fontSize: 20.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.w600),
                 ),
               ),

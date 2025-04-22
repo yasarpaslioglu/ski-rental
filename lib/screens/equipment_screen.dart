@@ -87,7 +87,7 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
                 _selectDate();
               },
             ),
-            SizedBox(height: 20.h),
+            SizedBox(height: 10.h),
             Expanded(
                 child: ListView.builder(
               shrinkWrap: true,
@@ -99,27 +99,31 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
                   child: Card(
                     elevation: 4,
                     child: ListTile(
+                      onTap: () => showAddToCartModal(context, equipment),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 8.w),
                       title: Text(
                         equipment.name,
-                        style: TextStyle(fontWeight: FontWeight.w500),
+                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.sp),
                       ),
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(equipment.desc),
-                          SizedBox(height: 2.h),
-                          Text('\$${equipment.price}/hr')
+                          Text(equipment.desc, style: TextStyle(fontSize: 12.sp),),
+                          SizedBox(height: 5.h),
+                          Text('\$${equipment.price}', style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w600),)
                         ],
                       ),
                       leading: ClipRRect(
                         borderRadius: BorderRadius.circular(3),
                         child: Container(
                           constraints: BoxConstraints.expand(width: 50.w),
-                          child: Placeholder(),
+                          child: Image.network(equipment.imageUrl,
+                          width: 50.w,
+                          fit: BoxFit.cover,),
                         ),
                       ),
                       trailing: IconButton(
-                        icon: Icon(Symbols.add_circle),
+                        icon: Icon(Symbols.add_shopping_cart),
                         onPressed: () {
                           showAddToCartModal(context, equipment);
                         },
@@ -143,6 +147,7 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       isScrollControlled: true,
+      useSafeArea: true,
       builder: (context) => DraggableScrollableSheet(
         expand: false,
         builder: (context, scrollController) => SingleChildScrollView(
@@ -150,6 +155,7 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
           child: Padding(
             padding: EdgeInsets.all(16),
             child: Column(
+
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -160,8 +166,8 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
                       child: Container(
                         color: AppColor.primary,
                         constraints: BoxConstraints.tightFor(
-                            width: 500.w, height: 200.h),
-                        child: Placeholder(),
+                            width: 500.w),
+                        child: Image.network(equipment.imageUrl),
                       ),
                     ))
                   ],
@@ -180,9 +186,24 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
                     textAlign: TextAlign.center),
                 SizedBox(height: 50.h),
                 TextButton(
-                    child: Text('Add to Cart',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 20.sp)),
+                    child: Container(
+                      constraints: BoxConstraints(minWidth: 300.w),
+                      decoration: BoxDecoration(
+                        color: AppColor.primary,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withAlpha(50), blurRadius: 5, spreadRadius: 3
+                          )
+                        ]
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 3.h),
+                      child: Center(
+                        child: Text('Add to Cart',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 17.sp, color: AppColor.white)),
+                      ),
+                    ),
                     onPressed: () {})
               ],
             ),
@@ -194,19 +215,19 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
 
   // select date function for date text field input
   Future<void> _selectDate() async {
-    DateTime? _picked = await showDateTimePicker(
+    DateTime? picked = await showDateTimePicker(
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime(2000),
         lastDate: DateTime(2100));
-    if (_picked != null) {
+    if (picked != null) {
       setState(() {
-        var _split = _picked.toString().split(':');
-        var _dateAndTime = '${_split[0]}'
-            .substring(0, '${_split[0]}'.length - 2)
+        var split = picked.toString().split(':');
+        var dateAndTime = split[0]
+            .substring(0, split[0].length - 2)
             .replaceAll("-", "/");
-        dateController.text = _dateAndTime;
-        pickedDate = _picked;
+        dateController.text = dateAndTime;
+        pickedDate = picked;
       });
     }
   }
