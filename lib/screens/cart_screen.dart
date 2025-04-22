@@ -72,42 +72,43 @@ class _CartScreenState extends State<CartScreen> {
             drawer: Menu(),
             bottomNavigationBar: Container(
               decoration: BoxDecoration(
-                  color: AppColor.primary,
+                  color: AppColor.white,
                   boxShadow: [
                     BoxShadow(
-                        color: Colors.black.withAlpha(100),
+                        color: Colors.black.withAlpha(50),
                         blurRadius: 5,
                         spreadRadius: 3
                     )
                   ]
               ),
-              constraints: BoxConstraints(maxHeight: 100.h),
+              constraints: BoxConstraints(maxHeight: 150.h),
               child: Padding(
-                padding: EdgeInsets.fromLTRB(10.w, 15.h, 10.w, 10.h),
+                padding: EdgeInsets.fromLTRB(15.w, 15.h, 15.w, 10.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
                       children: [
-                        Text('Total Price:', style: TextStyle(color: AppColor.white, fontWeight: FontWeight.w600)),
+                        Text('Total Price:', style: TextStyle(color: AppColor.primary, fontWeight: FontWeight.w600, fontSize: 20.sp)),
                         Expanded(child: Container()),
-                        Text('\$${totalPrice.toString()}', style: TextStyle(color: AppColor.white, fontWeight: FontWeight.w600))
+                        Text('\$${totalPrice.toString()}', style: TextStyle(color: AppColor.primary, fontWeight: FontWeight.w600, fontSize: 20.sp))
                       ],
                     ),
-                    SizedBox(height: 4.h),
-                    Divider(
-                      height: 6,
-                      color: AppColor.white,
-                      thickness: 1,
-                    ),
-                    SizedBox(height: 4.h),
-                    GestureDetector(
-                      onTap: () {
-                        
-                      },
-                      child: Text('Checkout', style: TextStyle(color: AppColor.white, fontWeight: FontWeight.w700, fontSize: 20.sp),),
-                    )
-                  ],
+                    SizedBox(height: 15.h),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColor.primary,
+                          foregroundColor: AppColor.white,
+                          elevation: 5,
+                          minimumSize: const Size.fromHeight(50),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: () {
+
+                        },
+                        child: Text('Checkout', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 17.sp),))                  ],
                 ),),
             ),
             body: Padding(
@@ -145,68 +146,40 @@ class _CartScreenState extends State<CartScreen> {
                         itemBuilder: (context, index) {
                           Equipment cartItem = cart[index];
                           return Padding(
-                            padding: EdgeInsets.fromLTRB(0, 7.h, 0, 7.h),
+                            padding: EdgeInsets.fromLTRB(0, 7.h, 0, 0),
                             child: Card(
                               elevation: 4,
                               child: ListTile(
-                                onTap: () {
-                                  showRemoveFromCartModal(context, cartItem);
-                                },
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 8.w),
-                                title: Row(
-                                  children: [
-                                    Container(
-                                      constraints: BoxConstraints(
-                                          maxWidth: 250.w),
-                                      child: Text(
-                                        cartItem.name,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 14.sp),
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                    Expanded(child: Container()),
-                                    Text(
-                                      '\$${cartItem.price}/hr',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14.sp),
-                                      textAlign: TextAlign.right,
-                                    )
-                                  ],
+                                onTap: () => showRemoveFromCartModal(context, cartItem),
+                                contentPadding: EdgeInsets.symmetric(horizontal: 8.w),
+                                title: Text(
+                                  cartItem.name,
+                                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.sp),
                                 ),
                                 subtitle: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(height: 2.h),
-                                    Text(cartItem.desc,
-                                      style: TextStyle(fontSize: 12.sp),),
+                                    Container(
+                                        constraints: BoxConstraints(maxHeight: 25.h),
+                                        child: Text(cartItem.desc, style: TextStyle(fontSize: 12.sp), overflow: TextOverflow.ellipsis,)),
                                     SizedBox(height: 5.h),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        IconButton(
-                                            onPressed: () {
-
-                                            },
-                                            icon: Icon(
-                                              Symbols.remove_shopping_cart,
-                                              weight: 600, size: 20.sp,))
-                                      ],
-                                    )
+                                    Text('\$${cartItem.price}', style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w600),)
                                   ],
                                 ),
                                 leading: ClipRRect(
                                   borderRadius: BorderRadius.circular(3),
                                   child: Container(
-                                    constraints: BoxConstraints.expand(
-                                        width: 50.w),
+                                    constraints: BoxConstraints.expand(width: 50.w),
                                     child: Image.network(cartItem.imageUrl,
                                       width: 50.w,
                                       fit: BoxFit.cover,),
                                   ),
+                                ),
+                                trailing: IconButton(
+                                  icon: Icon(Symbols.remove_shopping_cart),
+                                  onPressed: () {
+
+                                  },
                                 ),
                               ),
                             ),

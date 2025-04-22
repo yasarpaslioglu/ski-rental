@@ -25,26 +25,34 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: AppColor.primary,
-      child: Padding(
-        padding: EdgeInsets.fromLTRB(0, 20.h, 0, 10.h),
+      child: SafeArea(
         child: ListView(
           children: [
-            // Dashboard
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, DashboardScreen.routeName);
-              },
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(30.w, 10.h, 10.w, 7.h),
-                child: Text(
-                  'Dashboard',
-                  style: TextStyle(
-                      color: AppColor.white,
-                      fontSize: 17.sp,
-                      fontWeight: FontWeight.w600),
-                ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(6.w, 6.h, 0, 0),
+              child: Row(
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Scaffold.of(context).closeDrawer();
+                      },
+                      icon: Icon(
+                        Symbols.menu,
+                        color: AppColor.white,
+                        size: 30.sp,
+                        weight: 600,
+                      )),
+                  SizedBox(width: 10.w),
+                  Text(
+                    'Ski Rental',
+                    style: TextStyle(color: AppColor.white, fontWeight: FontWeight.w700, fontSize: 32.sp),
+                  )
+                ],
               ),
             ),
+            Divider(color: AppColor.white.withAlpha(100), indent: 10.w, endIndent: 10.w, thickness: 0,),
+            // Dashboard
+            MenuItem(title: 'Dashboard', iconData: Symbols.home_filled, routeName: DashboardScreen.routeName),
             // Browse Equipment
             InkWell(
               onTap: () {
@@ -53,9 +61,11 @@ class _MenuState extends State<Menu> {
                 });
               },
               child: Padding(
-                padding: EdgeInsets.fromLTRB(30.w, 7.h, 10.w, 7.h),
+                padding: EdgeInsets.fromLTRB(15.w, 7.h, 10.w, 7.h),
                 child: Row(
                   children: [
+                    Icon(Symbols.search, color: AppColor.white),
+                    SizedBox(width: 10.w),
                     Expanded(
                       child: Text(
                         'Browse Equipment',
@@ -82,216 +92,62 @@ class _MenuState extends State<Menu> {
             expandEquipment
                 ? Column(
                     children: [
-                      // Ski
-                      Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, EquipmentScreen.routeName, arguments: EquipmentType.ski);
-                            },
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(60.w, 3.h, 10.w, 3.h),
-                              child: Text(
-                                'Ski',
-                                style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ))
-                        ],
-                      ),
-                      // Snowboard
-                      Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, EquipmentScreen.routeName, arguments: EquipmentType.snowboard);
-                            },
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(60.w, 3.h, 10.w, 3.h),
-                              child: Text(
-                                'Snowboard',
-                                style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ))
-                        ],
-                      ),
-                      // Ski Boots
-                      Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, EquipmentScreen.routeName, arguments: EquipmentType.skiBoots);
-                            },
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(60.w, 3.h, 10.w, 3.h),
-                              child: Text(
-                                'Ski Boots',
-                                style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ))
-                        ],
-                      ),
-                      // Snowboard Boots
-                      Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, EquipmentScreen.routeName, arguments: EquipmentType.snowboardBoots);
-                            },
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(60.w, 3.h, 10.w, 3.h),
-                              child: Text(
-                                'Snowboard Boots',
-                                style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ))
-                        ],
-                      ),
-                      // Helmet
-                      Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, EquipmentScreen.routeName, arguments: EquipmentType.helmet);
-                            },
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(60.w, 3.h, 10.w, 3.h),
-                              child: Text(
-                                'Helmet',
-                                style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ))
-                        ],
-                      ),
-                      // Goggles
-                      Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, EquipmentScreen.routeName, arguments: EquipmentType.goggle);
-                            },
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(60.w, 3.h, 10.w, 3.h),
-                              child: Text(
-                                'Goggles',
-                                style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ))
-                        ],
-                      ),
-                      // Jacket
-                      Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, EquipmentScreen.routeName, arguments: EquipmentType.jacket);
-                            },
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(60.w, 3.h, 10.w, 3.h),
-                              child: Text(
-                                'Jacket',
-                                style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ))
-                        ],
-                      ),
-                      // Pants
-                      Row(
-                        children: [
-                          Expanded(
-                              child: InkWell(
-                            onTap: () {
-                              Navigator.pushNamed(context, EquipmentScreen.routeName, arguments: EquipmentType.pants);
-                            },
-                            child: Padding(
-                              padding:
-                                  EdgeInsets.fromLTRB(60.w, 3.h, 10.w, 3.h),
-                              child: Text(
-                                'Pants',
-                                style: TextStyle(
-                                    color: AppColor.white,
-                                    fontSize: 17.sp,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ))
-                        ],
-                      ),
+                      MenuItem(title: 'Skis', routeName: EquipmentScreen.routeName, arguments: EquipmentType.ski, isInnerItem: true),
+                      MenuItem(title: 'Snowboards', routeName: EquipmentScreen.routeName, arguments: EquipmentType.snowboard, isInnerItem: true),
+                      MenuItem(title: 'Ski Boots', routeName: EquipmentScreen.routeName, arguments: EquipmentType.skiBoots, isInnerItem: true),
+                      MenuItem(title: 'Snowboard Boots', routeName: EquipmentScreen.routeName, arguments: EquipmentType.snowboardBoots, isInnerItem: true),
+                      MenuItem(title: 'Helmets', routeName: EquipmentScreen.routeName, arguments: EquipmentType.helmet, isInnerItem: true),
+                      MenuItem(title: 'Goggles', routeName: EquipmentScreen.routeName, arguments: EquipmentType.goggle, isInnerItem: true),
+                      MenuItem(title: 'Jackets', routeName: EquipmentScreen.routeName, arguments: EquipmentType.jacket, isInnerItem: true),
+                      MenuItem(title: 'Pants', routeName: EquipmentScreen.routeName, arguments: EquipmentType.pants, isInnerItem: true),
                     ],
                   )
                 : Container(),
-            // My Orders
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, MyOrdersScreen.routeName);
-              },
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(30.w, 7.h, 10.w, 7.h),
-                child: Text(
-                  'My Orders',
-                  style: TextStyle(
-                      color: AppColor.white,
-                      fontSize: 17.sp,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
-            ),
-            // Cart
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, CartScreen.routeName);
-              },
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(30.w, 7.h, 10.w, 7.h),
-                child: Text(
-                  'Cart',
-                  style: TextStyle(
-                      color: AppColor.white,
-                      fontSize: 17.sp,
-                      fontWeight: FontWeight.w600),
-                ),
-              ),
+            MenuItem(title: 'My Orders', routeName: MyOrdersScreen.routeName, iconData: Symbols.receipt_long,),
+            MenuItem(title: 'Cart', routeName: CartScreen.routeName, iconData: Symbols.shopping_cart,),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class MenuItem extends StatelessWidget {
+
+
+  const MenuItem({
+    super.key,
+    required this.title,
+    required this.routeName,
+    this.iconData,
+    this.isInnerItem = false,
+    this.arguments
+  });
+
+  final String title;
+  final String routeName;
+  final IconData? iconData;
+  final bool isInnerItem;
+  final Object? arguments;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, routeName, arguments: arguments);
+      },
+      child: Padding(
+        padding: isInnerItem ? EdgeInsets.fromLTRB(65.w, 3.h, 10.w, 3.h) : EdgeInsets.fromLTRB(15.w, 10.h, 10.w, 7.h),
+        child: Row(
+          children: [
+            iconData == null ? Container() : Icon(iconData, color: AppColor.white),
+            iconData == null ? Container() : SizedBox(width: 10.w),
+            Text(
+              title,
+              style: TextStyle(
+                  color: AppColor.white,
+                  fontSize: 17.sp,
+                  fontWeight: FontWeight.w600),
             ),
           ],
         ),

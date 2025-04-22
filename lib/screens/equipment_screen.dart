@@ -115,7 +115,7 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
               itemBuilder: (context, index) {
                 Equipment equipment = equipmentList[index];
                 return Padding(
-                  padding: EdgeInsets.fromLTRB(0, 7.h, 0, 7.h),
+                  padding: EdgeInsets.fromLTRB(0, 7.h, 0, 0),
                   child: Card(
                     elevation: 4,
                     child: ListTile(
@@ -128,7 +128,9 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(equipment.desc, style: TextStyle(fontSize: 12.sp),),
+                          Container(
+                              constraints: BoxConstraints(maxHeight: 25.h),
+                              child: Text(equipment.desc, style: TextStyle(fontSize: 12.sp), overflow: TextOverflow.ellipsis,)),
                           SizedBox(height: 5.h),
                           Text('\$${equipment.price}', style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w600),)
                         ],

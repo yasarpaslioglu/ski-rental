@@ -22,8 +22,22 @@ class OrderMockData {
           price: 10.0,
           imageUrl: ImagesUrl.helmetPlaceholderImage,
         ),
+        Equipment(
+          type: EquipmentType.ski,
+          name: 'All-Mountain Skis',
+          desc: 'Great for any terrain.',
+          price: 45.0,
+          imageUrl: ImagesUrl.skiPlaceholderImage,
+        ),
+        Equipment(
+          type: EquipmentType.helmet,
+          name: 'Ski Helmet',
+          desc: 'Secure and comfortable.',
+          price: 10.0,
+          imageUrl: ImagesUrl.helmetPlaceholderImage,
+        ),
       ],
-      totalPrice: 55.0,
+      totalPrice: 110.0,
     ),
     Order(
       orderDate: DateTime(2025, 3, 20),

@@ -98,7 +98,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ],
             ),
           ),
-          orders.isEmpty ? SliverToBoxAdapter(child: Center(child: Text('No Orders Yet'),),) : SliverList(
+          orders.isEmpty ? SliverToBoxAdapter(child: Center(child: Text('No Orders Yet'),),) :
+          SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
             Order order = orders[index];
             return Padding(
