@@ -4,6 +4,7 @@ import 'package:material_symbols_icons/symbols.dart';
 import 'package:provider/provider.dart';
 import 'package:ski_rental/providers/UserProvider.dart';
 import 'package:ski_rental/screens/change_password_screen.dart';
+import 'package:ski_rental/screens/login_screen.dart';
 
 import '../themes/app_color.dart';
 import '../widgets/account_button.dart';
@@ -87,7 +88,9 @@ class _AccountSettingScreenState extends State<AccountSettingScreen> {
                   )),
               SizedBox(height: 20.h),
               GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, LoginScreen.routeName);
+                  },
                   child: Text(
                     'Logout',
                     style:

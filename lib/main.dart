@@ -6,7 +6,9 @@ import 'package:ski_rental/screens/cart_screen.dart';
 import 'package:ski_rental/screens/change_password_screen.dart';
 import 'package:ski_rental/screens/dashboard_screen.dart';
 import 'package:ski_rental/screens/equipment_screen.dart';
+import 'package:ski_rental/screens/login_screen.dart';
 import 'package:ski_rental/screens/my_orders_screen.dart';
+import 'package:ski_rental/screens/signup_screen.dart';
 import 'package:ski_rental/themes/app_color.dart';
 
 void main() {
@@ -26,6 +28,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Ski Rental',
         theme: ThemeData(
+          appBarTheme: AppBarTheme(
+            surfaceTintColor: Colors.transparent,
+            shadowColor: Colors.black.withAlpha(100),
+            elevation: 5,
+          ),
           fontFamily: "Montserrat",
           colorScheme: ColorScheme(
               brightness: Brightness.light,
@@ -46,6 +53,8 @@ class MyApp extends StatelessWidget {
           MyOrdersScreen.routeName : (context) => MyOrdersScreen(),
           AccountSettingScreen.routeName : (context) => AccountSettingScreen(),
           ChangePasswordScreen.routeName : (context) => ChangePasswordScreen(),
+          LoginScreen.routeName : (context) => LoginScreen(),
+          SignupScreen.routeName : (context) => SignupScreen(),
         },
       ),
     );

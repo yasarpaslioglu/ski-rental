@@ -45,7 +45,7 @@ class _MyOrdersScreenState extends State<MyOrdersScreen> {
             ),
             drawer: Menu(),
             body: Padding(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.fromLTRB(15.w, 15.h, 15.w, 0),
               child: orders.isEmpty ? Center(child: Text('No Orders Yet'),) : OrdersList(orders: orders),),
           ),
     );

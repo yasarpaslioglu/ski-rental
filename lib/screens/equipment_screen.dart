@@ -20,8 +20,28 @@ class EquipmentScreen extends StatefulWidget {
 
 class _EquipmentScreenState extends State<EquipmentScreen> {
   DateTime pickedDate = DateTime.now();
-  final TextEditingController dateController = TextEditingController();
+  late final TextEditingController dateController;
   List<Equipment> equipmentList = [];
+
+  void initializeController() {
+    dateController = TextEditingController();
+  }
+
+  void disposeController() {
+    dateController.dispose();
+  }
+
+  @override
+  void initState() {
+    initializeController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    disposeController();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -179,33 +199,26 @@ class _EquipmentScreenState extends State<EquipmentScreen> {
                     textAlign: TextAlign.center),
                 Text('\$${equipment.price.toString()}/hr',
                     style: TextStyle(
-                        fontWeight: FontWeight.w600, fontSize: 15.sp)),
+                        fontWeight: FontWeight.w400, fontSize: 12.sp)),
                 SizedBox(height: 15.h),
                 Text(equipment.desc,
-                    style: TextStyle(fontSize: 15.sp),
+                    style: TextStyle(fontSize: 12.sp),
                     textAlign: TextAlign.center),
                 SizedBox(height: 50.h),
-                TextButton(
-                    child: Container(
-                      constraints: BoxConstraints(minWidth: 300.w),
-                      decoration: BoxDecoration(
-                        color: AppColor.primary,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withAlpha(50), blurRadius: 5, spreadRadius: 3
-                          )
-                        ]
-                      ),
-                      padding: EdgeInsets.symmetric(vertical: 3.h),
-                      child: Center(
-                        child: Text('Add to Cart',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 17.sp, color: AppColor.white)),
-                      ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColor.primary,
+                    foregroundColor: AppColor.white,
+                    elevation: 5,
+                    minimumSize: const Size.fromHeight(50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
                     ),
-                    onPressed: () {})
-              ],
+                  ),
+                    onPressed: () {
+
+                    },
+                    child: Text('Add to Cart'))              ],
             ),
           ),
         ),
