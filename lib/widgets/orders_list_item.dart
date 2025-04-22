@@ -62,7 +62,7 @@ class OrdersListItem extends StatelessWidget {
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 14.sp),
-                                overflow: TextOverflow.ellipsis,
+                                overflow: TextOverflow.fade,
                               ),
                             ),
                             Expanded(child: Container()),
@@ -80,6 +80,7 @@ class OrdersListItem extends StatelessWidget {
                           children: [
                             Text(
                               orderItem.desc,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(fontSize: 12.sp),
                             ),
                             SizedBox(height: 5.h),

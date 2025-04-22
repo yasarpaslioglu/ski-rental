@@ -154,6 +154,7 @@ class _CartScreenState extends State<CartScreen> {
                                 contentPadding: EdgeInsets.symmetric(horizontal: 8.w),
                                 title: Text(
                                   cartItem.name,
+                                  overflow: TextOverflow.fade,
                                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14.sp),
                                 ),
                                 subtitle: Column(

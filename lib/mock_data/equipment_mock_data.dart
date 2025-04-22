@@ -165,28 +165,28 @@ class EquipmentMockData {
       name: 'Smith Holt',
       desc: 'Durable and warm with adjustable vents.',
       price: 9.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.helmetPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.helmet,
       name: 'POC Obex Spin',
       desc: 'Lightweight, high-tech safety helmet.',
       price: 12.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.helmetPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.helmet,
       name: 'Oakley Mod 5',
       desc: 'Premium helmet with modular brim system.',
       price: 11.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.helmetPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.helmet,
       name: 'Anon Raider 3',
       desc: 'Minimalist design with solid impact protection.',
       price: 8.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.helmetPlaceholderImage
     ),
 
     // Goggles
@@ -195,35 +195,35 @@ class EquipmentMockData {
       name: 'Oakley Flight Deck',
       desc: 'Wide field of view and anti-fog coating.',
       price: 8.00,
-      imageUrl: ImagesUrl.helmetPlaceholderImage
+      imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.goggle,
       name: 'Smith I/O Mag',
       desc: 'Quick lens change and spherical optics.',
       price: 9.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.goggle,
       name: 'Anon M4 Toric',
       desc: 'High-clarity lens with magnetic lens change.',
       price: 10.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.goggle,
       name: 'Dragon X2',
       desc: 'Stylish goggles with frameless design.',
       price: 9.50,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.goggle,
       name: 'Giro Axis',
       desc: 'Modern design with quick lens swapping.',
       price: 8.50,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
 
     // Jackets
@@ -239,28 +239,28 @@ class EquipmentMockData {
       name: 'Burton Covert',
       desc: 'Breathable and durable for all-day riding.',
       price: 17.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.jacketPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.jacket,
       name: 'Patagonia Snowshot',
       desc: 'Eco-friendly, weather-resistant performance jacket.',
       price: 19.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.jacketPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.jacket,
       name: 'Volcom Brighton Pullover',
       desc: 'Stylish anorak with tech features.',
       price: 16.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.jacketPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.jacket,
       name: '686 Smarty 3-in-1',
       desc: 'Layered system for versatility and warmth.',
       price: 20.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.jacketPlaceholderImage
     ),
 
     // Pants
@@ -276,28 +276,28 @@ class EquipmentMockData {
       name: 'The North Face Freedom',
       desc: 'Waterproof and breathable shell pants.',
       price: 16.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.pantsPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.pants,
       name: 'Volcom Articulated',
       desc: 'Slim-fit pants with articulated knees.',
       price: 14.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.pantsPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.pants,
       name: '686 Everywhere Pant',
       desc: 'Technical pants with casual look.',
       price: 13.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.pantsPlaceholderImage
     ),
     Equipment(
       type: EquipmentType.pants,
       name: 'Quiksilver Utility Shell',
       desc: 'Performance-focused pants for harsh weather.',
       price: 15.50,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.pantsPlaceholderImage
     ),
 
     // Skis
@@ -461,28 +461,28 @@ class EquipmentMockData {
         name: 'Smith Holt',
         desc: 'Durable and warm with adjustable vents.',
         price: 9.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.helmetPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.helmet,
         name: 'POC Obex Spin',
         desc: 'Lightweight, high-tech safety helmet.',
         price: 12.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.helmetPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.helmet,
         name: 'Oakley Mod 5',
         desc: 'Premium helmet with modular brim system.',
         price: 11.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.helmetPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.helmet,
         name: 'Anon Raider 3',
         desc: 'Minimalist design with solid impact protection.',
         price: 8.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.helmetPlaceholderImage
     ),
 
     // Goggles
@@ -491,35 +491,35 @@ class EquipmentMockData {
         name: 'Oakley Flight Deck',
         desc: 'Wide field of view and anti-fog coating.',
         price: 8.00,
-        imageUrl: ImagesUrl.helmetPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.goggle,
         name: 'Smith I/O Mag',
         desc: 'Quick lens change and spherical optics.',
         price: 9.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.goggle,
         name: 'Anon M4 Toric',
         desc: 'High-clarity lens with magnetic lens change.',
         price: 10.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.goggle,
         name: 'Dragon X2',
         desc: 'Stylish goggles with frameless design.',
         price: 9.50,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.goggle,
         name: 'Giro Axis',
         desc: 'Modern design with quick lens swapping.',
         price: 8.50,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.gogglesPlaceholderImage
     ),
 
     // Jackets
@@ -535,28 +535,28 @@ class EquipmentMockData {
         name: 'Burton Covert',
         desc: 'Breathable and durable for all-day riding.',
         price: 17.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.jacketPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.jacket,
         name: 'Patagonia Snowshot',
         desc: 'Eco-friendly, weather-resistant performance jacket.',
         price: 19.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.jacketPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.jacket,
         name: 'Volcom Brighton Pullover',
         desc: 'Stylish anorak with tech features.',
         price: 16.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.jacketPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.jacket,
         name: '686 Smarty 3-in-1',
         desc: 'Layered system for versatility and warmth.',
         price: 20.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.jacketPlaceholderImage
     ),
 
     // Pants
@@ -572,28 +572,28 @@ class EquipmentMockData {
         name: 'The North Face Freedom',
         desc: 'Waterproof and breathable shell pants.',
         price: 16.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.pantsPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.pants,
         name: 'Volcom Articulated',
         desc: 'Slim-fit pants with articulated knees.',
         price: 14.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.pantsPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.pants,
         name: '686 Everywhere Pant',
         desc: 'Technical pants with casual look.',
         price: 13.00,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.pantsPlaceholderImage
     ),
     Equipment(
         type: EquipmentType.pants,
         name: 'Quiksilver Utility Shell',
         desc: 'Performance-focused pants for harsh weather.',
         price: 15.50,
-        imageUrl: ImagesUrl.snowboardBootsPlaceholderImage
+        imageUrl: ImagesUrl.pantsPlaceholderImage
     ),
   ];
 
