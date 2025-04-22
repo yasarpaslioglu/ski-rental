@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ski_rental/providers/UserProvider.dart';
+import 'package:ski_rental/providers/date_provider.dart';
+import 'package:ski_rental/providers/user_provider.dart';
 import 'package:ski_rental/screens/account_setting_screen.dart';
 import 'package:ski_rental/screens/cart_screen.dart';
 import 'package:ski_rental/screens/change_password_screen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => UserProvider()),
+        ChangeNotifierProvider(create: (context) => DateProvider()),
       ],
       child: MaterialApp(
         title: 'Ski Rental',

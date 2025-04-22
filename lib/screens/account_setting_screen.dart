@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:provider/provider.dart';
-import 'package:ski_rental/providers/UserProvider.dart';
+import 'package:ski_rental/providers/user_provider.dart';
 import 'package:ski_rental/screens/change_password_screen.dart';
 import 'package:ski_rental/screens/login_screen.dart';
 

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:material_symbols_icons/symbols.dart';
+import 'package:provider/provider.dart';
 import 'package:ski_rental/mock_data/cart_mock_data.dart';
 import 'package:ski_rental/models/equipment.dart';
 
+import '../providers/date_provider.dart';
 import '../themes/app_color.dart';
 import '../widgets/account_button.dart';
 import '../widgets/menu.dart';
@@ -19,7 +21,6 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  DateTime pickedDate = DateTime.now();
   late final TextEditingController dateController;
   List<Equipment> cart = [];
 
@@ -45,6 +46,8 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final dateProvider = Provider.of<DateProvider>(context);
+    dateController.text = dateProvider.dmyFormat();
     cart = CartMockData().mockCart;
     double totalPrice = 0;
     for (var cartItem in cart) {
@@ -135,7 +138,7 @@ class _CartScreenState extends State<CartScreen> {
                               color: AppColor.white, width: 0)),
                     ),
                     onTap: () {
-                      _selectDate();
+                      _selectDate(dateProvider);
                     },
                   ),
                   SizedBox(height: 10.h),
@@ -264,7 +267,7 @@ class _CartScreenState extends State<CartScreen> {
   }
 
   // select date function for date text field input
-  Future<void> _selectDate() async {
+  Future<void> _selectDate(DateProvider dateProvider) async {
     DateTime? picked = await showDateTimePicker(
         context: context,
         initialDate: DateTime.now(),
@@ -272,12 +275,7 @@ class _CartScreenState extends State<CartScreen> {
         lastDate: DateTime(2100));
     if (picked != null) {
       setState(() {
-        var split = picked.toString().split(':');
-        var dateAndTime = split[0]
-            .substring(0, split[0].length - 2)
-            .replaceAll("-", "/");
-        dateController.text = dateAndTime;
-        pickedDate = picked;
+        dateProvider.setDate(picked);
       });
     }
   }
